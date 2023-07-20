@@ -10,36 +10,52 @@
 </head>
 
 <body>
+
     <div id="app">
+
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
-                <div class="item" v-for="(imgSource, i) in images"
-                    v-bind:class="(activeImageIndex === i ? 'active' : '')" 
-                    v-bind:class="" 
-                    @click="onCardClick(i)">
-                    <img v-bind:src="imgSource" alt="Spiderman" />
+
+                <div class="item">
+                    <img src="img/01.webp" alt="Spiderman" />
                     <div class="text">
-                        <h3>Spiderman</h3>
+                        <h3>{{ VARIABILE }}</h3>
                         <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit
-                            tempore aliquid deleniti aut
-                            veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum
-                            corporis.
+                            {{ VARIABILE}}
                         </p>
                     </div>
                 </div>
+
                 <div class="thumbs">
-                    <button class="prev" @click="onPrevClick"></button>
-                    <button class="prev" @click="onPrevClick"></button>
-                    <div class="thumb active" v-for="(imgSource, i) in images"
-                        v-bind:class="(activeImageIndex === i ? 'visible' : '')" @click="onCardClick(i)">
-                        <img v-bind:src="imgSource">
+                    <div class="prev"  @click="onPrevClick"></div>
+                    <div class="next"  @click="onNextClick"></div>
+                    <div class="thumb active" @click="onCardClick"
+                          v-for="(imgSource, i) in slides"
+                          v-bind:class="(activeImageIndex === i ? 'active' : '')"
+                          @click="onCardClick(i)">
+                        <img src="imgSource" alt="Svezia" />
+                    </div>
+                    <div class="thumb">
+                        <img v-bind:src="imgSource" alt="Ratchet & Clank" />
+                    </div>
+                    <div class="thumb">
+                        <img v-bind:src="imgSource" alt="Fortnite" />
+                    </div>
+                    <div class="thumb">
+                        <img v-bind:src="imgSource" alt="Stray" />
+                    </div>
+                    <div class="thumb">
+                        <img v-bind:src="imgSource" alt="Avengers" />
                     </div>
                 </div>
+
             </div>
         </div>
-        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-        <script src="./js/script.js"></script>
+
+    </div>
+
+    <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
