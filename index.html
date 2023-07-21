@@ -17,11 +17,11 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
-                    <img src="img/01.webp" alt="Spiderman" />
+                    <img v-bind:src="slides[activeImageIndex].image" alt="Spiderman" />
                     <div class="text">
-                        <h3>{{ VARIABILE }}</h3>
+                        <h3>{{ slides[activeImageIndex].title }}</h3>
                         <p>
-                            {{ VARIABILE}}
+                            {{ slides[activeImageIndex].text}}
                         </p>
                     </div>
                 </div>
@@ -29,23 +29,11 @@
                 <div class="thumbs">
                     <div class="prev"  @click="onPrevClick"></div>
                     <div class="next"  @click="onNextClick"></div>
-                    <div class="thumb active" @click="onCardClick"
-                          v-for="(imgSource, i) in slides"
-                          v-bind:class="(activeImageIndex === i ? 'active' : '')"
-                          @click="onCardClick(i)">
-                        <img src="imgSource" alt="Svezia" />
-                    </div>
-                    <div class="thumb">
-                        <img v-bind:src="imgSource" alt="Ratchet & Clank" />
-                    </div>
-                    <div class="thumb">
-                        <img v-bind:src="imgSource" alt="Fortnite" />
-                    </div>
-                    <div class="thumb">
-                        <img v-bind:src="imgSource" alt="Stray" />
-                    </div>
-                    <div class="thumb">
-                        <img v-bind:src="imgSource" alt="Avengers" />
+                    <div class="thumb" 
+                    v-for="(imgSource, i) in slides"
+                    v-bind:class="(activeImageIndex === i ? 'active' : '')"
+                    @click="onCardClick(i)">
+                        <img v-bind:src="imgSource.image" alt="Svezia" />
                     </div>
                 </div>
 
